@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>opening exercises, part one: input validation</title>
+</head>
+<body>
+<h1> JAVASCRIPT TAKES IN INPUT, ADJUSTS PAGE ELEMENTS</h1>
+
+<p> PLEASE INPUT A NUMBER BETWEEN 1 and 10: </p>
+
+<input id="numb" type="number">
+
+<button type="button" onclick="myFunction()"> SUBMIT ME </button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction()
+    {
+        var x, text;
+        x = document.getElementById("numb").value;
+        
+        if(isNaN(x) || x < 1 || x > 10)
+        {
+            text = "Input is not valid yet...";
+        }else
+        {
+            text = "input is good! Thanks";
+        }
+        
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+
+</body>
+</html>
