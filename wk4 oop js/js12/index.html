@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+            <title> JS 12</title>
+    </head>
+    <body>
+<p> Click the button, below to display days of the week
+
+<button onclick="myFunction()"> try this out </button>
+
+<p id="demo2"> </p><!-- output -->
+<p id="demo"> </p><!-- output -->
+
+<script>
+    function myFunction()
+    {
+        var d = new Date();
+        var n = d.getDay(); //result of having a date
+        
+        document.getElementById("demo2").innerHTML = "day of the week, as a number is ";
+        document.getElementById("demo").innerHTML = n;//print to our p, or a div within it
+
+    }
+</script>
+
+    </body>
+</html>
