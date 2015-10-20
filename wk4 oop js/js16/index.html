@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 16 </title>
+</head>
+<body>
+    
+<p id="demo"> </p>
+
+<script>
+
+var txt = "";
+var person = {fname:"John", lname:"Doe", age:25};
+var x;
+
+for (x in person)//person is a collection
+{
+    txt += person[x] + " ";//assign a new variable to txt as
+                            //the loop iterates / traverses
+                            //txt accumulates content as the for
+                            //loop progresses
+   // txt = txt + person[x] + " ";
+}
+document.getElementById("demo").innerHTML = txt;
+
+</script>
+
+    </body>
+</html>
