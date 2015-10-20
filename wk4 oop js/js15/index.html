@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 15 -- beginning OOP in JS #3</title>
+</head>
+<body>
+<p> there are 2 different ways to access an object property:</p>
+<p> you use .property OR ["property"].</p>
+    
+<p id="demo"> </p>
+
+<script>
+var person =
+{
+    firstName:"John",
+    lastName:"Doe",
+    age:50,
+    eyecolor:"blue"
+};
+document.getElementById("demo").innerHTML =
+person["firstName"] + " is " + person["age"] + " years old.";
+
+</script>
+
+    </body>
+</html>
