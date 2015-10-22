@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 17 </title>
+</head>
+<body>
+<p>You can add new properties to existing objects.</p>
+
+
+<p id="demo"> </p>
+
+<script>
+
+var person = { //core object, initialiazed as a variable
+    firstname: "John",
+    lastname: "Doe",
+    age:50,
+    eyecolor:"blue"
+};
+person.nationality = "English"; //set a new attribute, adding to its prototype
+
+document.getElementById("demo").innerHTML = person.firstname + " is " + person.nationality + ".";
+</script>
+
+    </body>
+</html>
