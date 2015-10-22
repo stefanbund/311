@@ -3,10 +3,10 @@
 <head>
     
 <meta charset="UTF-8">
-    <title> JS 17 </title>
+    <title> JS 18 </title>
 </head>
 <body>
-<p>You can add new properties to existing objects.</p>
+<p>You can delete object properties</p>
 
 
 <p id="demo"> </p>
@@ -19,9 +19,10 @@ var person = { //core object, initialiazed as a variable
     age:50,
     eyecolor:"blue"
 }; //container for your data
-person.nationality = "English"; //set a new attribute, adding to its prototype
+//person.nationality = "English"; //set a new attribute, adding to its prototype
+delete person.age;
 
-document.getElementById("demo").innerHTML = person.firstname + " is " + person.nationality + ".";
+document.getElementById("demo").innerHTML = person.firstname + " is " + person.age + " years old.";
 </script>
 
     </body>
