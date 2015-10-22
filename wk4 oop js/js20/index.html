@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 20 </title>
+</head>
+<body>
+<p>working with javascript prototypes</p>
+
+<p id="demo"> </p>
+
+<script>
+
+function person(firstName, lastName, age, eyeColor)
+{
+    this.firstName = firstName; //using incoming params to initialize the class' member vars
+    this.lastName = lastName; //consume the incoming param, above
+    this.age = age;
+    this.eyeColor = eyeColor;
+    this.changeName = function(name)
+    {
+        this.lastName = name; //incoming name sets its value
+    }
+}
+var myMother = new person("Sally", "Rally", 48, "green");
+myMother.changeName("Doe"); //test the change name feature
+
+document.getElementById("demo").innerHTML = "My mother's last name is " + myMother.lastName;
+</script>
+
+    </body>
+</html>
