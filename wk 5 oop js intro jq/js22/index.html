@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 22 </title>
+</head>
+<body>
+    <p></p>
+
+<p id="demo"> </p>
+
+<script>
+    //initialize an object with a set of arguments:
+function person(first, last, age, eye)
+{
+    this.firstName = first; //incoming parameter
+    this.lastName = last;
+    this.age = age; //given the parameter list, above
+    this.eyeColor = eye;
+}
+var myFather = new person("John", "Doe", 50, "blue");//init
+var myMother = new person("Sally", "Rally", 48, "green");//initialization
+    //use a function to initialize an object's attribute
+    myFather.name = function()
+    {
+        return this.firstName + " " + this.lastName;
+    }; //added a new function to the object, person
+
+document.getElementById("demo").innerHTML = "My father is " + myFather.name(); //name attribute is triggered by calling the function, above
+
+
+</script>
+
+    </body>
+</html>
