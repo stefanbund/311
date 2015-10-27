@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 23 </title>
+</head>
+<body>
+    <p>introduce JSON, and designing data transfer using javascript</p>
+    <p>JSON: javascript object notation</p>
+<h2> let's create an object from JSON strings </h2>
+<p id="demo"> </p>
+<!--JSON: 
+ 1. KEY/VALUE PAIR, ENCODED
+ 2. DOUBLE QUOTES: HELPS CREATE STRINGS
+3. DOUBLE QUOTES PACKAGE PAYLOAD CONTENT
+ 4. DATA ARRIVES WITHIN THE DOUBLE QUOTES
+ 5. HELPS YOU TO... TOKENIZE VALUE/KEYS -->
+<script>
+var text = '{"employees": [' +
+'{"firstName":"John","lastName":"Doe" },' +
+'{"firstName":"Anna","lastName":"Smith" },' +
+'{"firstName":"Peter","lastName":"Jones" }]}'; //JSON payload
+
+obj = JSON.parse(text); //our JSON payload
+
+document.getElementById("demo").innerHTML =
+obj.employees[1].firstName + " " + obj.employees[1].lastName;//use the JSON object to look into the employees array, then get out the object there, at position 1 (2nd object)
+
+</script>
+
+    </body>
+</html>
