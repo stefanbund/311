@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<meta charset="UTF-8">
+    <title> JS 21 </title>
+</head>
+<body>
+    <p>example 21: initialize objects with an object prototype</p>
+
+<p id="demo"> </p>
+
+<script>
+    //initialize an object with a set of arguments:
+function person(first, last, age, eye)
+{
+    this.firstName = first; //incoming parameter
+    this.lastName = last;
+    this.age = age; //given the parameter list, above
+    this.eyeColor = eye;
+}
+var myFather = new person("John", "Doe", 50, "blue");//init
+var myMother = new person("Sally", "Rally", 48, "green");//initialization
+
+document.getElementById("demo").innerHTML =
+"My father's age is " + myFather.age  + ". My mother is " + myMother.age;
+
+</script>
+
+    </body>
+</html>
