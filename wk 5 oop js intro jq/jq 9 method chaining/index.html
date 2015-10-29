@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> JS 8 </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--method chaining -->
+<script>
+
+$(document).ready(function()
+  {
+  $("button").click(function()
+    {
+    $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+    }); //example of method chaining, putting one event next to another
+});
+</script></head>
+<body>
+
+<p id="p1">Go JQuery!!!</p>
+
+<button>Click me!!</button>
+
+    
+</body>
+</html>
+
