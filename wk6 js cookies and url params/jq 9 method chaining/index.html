@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>  JQ 10: intro to form handling and the .val function in JQ</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--method chaining -->
+<script>
+    //RPC: remote proccedure call
+    //grab content from an html form element using a variable
+    $(document).ready(function()
+      {
+      $("button").click(function()
+                        {
+                        //output the value of the #test element
+                        alert("Value: " + $("#test").val());
+                      });
+        });
+</script></head>
+<body>
+    <p>Name: <input type="text" id="test" value="Capt 'Merica!"></p>
+        <button> Show Value in the input</button>
+</body>
+</html>
+
