@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.17.min.js"></script>
+<script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js"></script>
+<meta charset="UTF-8">
+<title>DYNAMO DB SAMPLER</title>
+</head>
+
+<body>
+<button id="triggerDB" style="display: block;">do a dynamoDB test</button>
+<div id="results"></div>
+<div id="fb-root"></div>
+
+<script type="text/javascript">
+var fbUserId;
+var appId = '120636118298132'; //from facebook
+var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
+
+var results = document.getElementById('results');
+var button = document.getElementById('triggerDB'); //configure the button event
+
+AWS.config.region = 'us-west-2';
+var table = new AWS.DynamoDB({params:{TableName:'websiteTest'}});//enter the name of your table here
+var key = 'itemID';//confirm your unique pk
+var itemParams = {Item: {itemID: {S: key}, data: {S: 'this val'}}};
+
+button.addEventListener('click', function(){
+	table.putItem(itemParams, function(err, data)
+			{
+				if(err)
+				{
+					console.log("error putting item");
+					console.log(err, err.stack);
+				}				
+				else	
+				{	table.getItem({Key: {id: {S: 'f2'}}}, function(err, data)
+					{
+					if(err)
+						{
+						console.log("error getting item");
+						console.log(err, err.stack);
+						}
+						console.log(data.Item);//item data
+						var objKeys = "";
+						data.Contents.ForEach(function(obj)
+						{
+							objKeys += obj.Key + "<br>";
+						});
+						results.innerHTML = objKeys; 
+					});
+				}
+			});
+}, false);
+
+
+
+
+
+
+
+window.fbAsyncInit = function() {
+		FB.init({
+			appId : appId
+		});
+
+		FB.login(function(response) {
+			table.config.credentials = new AWS.WebIdentityCredentials({
+				ProviderId : 'graph.facebook.com',
+				RoleArn : roleArn,
+				WebIdentityToken : response.authResponse.accessToken
+			});
+			fbUserId = response.authResponse.userID;
+			button.style.display = 'block';
+		});
+	};
+
+	// Load the Facebook SDK asynchronously
+
+	(function(d, s, id) 
+	{
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {
+		return;
+	}
+
+		js = d.createElement(s);
+		js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+</body>
+</html>
