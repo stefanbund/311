@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+<script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js"></script>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button id="login">Login</button>
+<div id="fb-root"></div>
+
+<button id="bb">press this!</button>
+    Name: <input type="text" id="fname">
+
+
+<script type="text/javascript">
+var fbUserId;
+var dynamodb = null; 
+var appId = '120636118298132'; //from facebook
+var roleArn = 'arn:aws:iam::165021830876:role/dynamoIntroRole'; //from AWS IAM
+var resultData = null;
+var inputText = null;
+
+document.getElementById('bb').onclick = function(){
+    var dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    var docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    
+    inputText = document.getElementById("fname").value;
+    console.log("fname value ", inputText);
+    var params = {
+        TableName: 'websiteTest',
+				    Item: {
+                        itemID: inputText,
+                        f2:'kjhkjhkjhkjhkjhkjhkjhkjhkjh'
+                    }
+				};
+				docClient.put(params, function(err, data){
+                              if (err) console.log(err);
+                              else
+                              {
+                              resultData = data;
+                              console.log(resultData);
+                              
+                              }
+                              });
+
+    
+}
+
+
+window.fbAsyncInit = function() {
+	FB.init({appId : appId});
+	
+	document.getElementById('login').onclick = function(){
+		
+	FB.login(function (response)  
+	{
+		if(response.authResponse)
+		{
+			AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+				RoleArn: roleArn,
+				ProviderId: 'graph.facebook.com',
+				WebIdentityToken: response.authResponse.accessToken
+			});
+			
+<!--			var dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });-->
+<!--			var docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });-->
+			console.log("You're now logged in.");
+<!--			-->
+<!--			var params = {-->
+<!--					TableName: 'websiteTest',-->
+<!--				    Item: {-->
+<!--				        itemID: inputText,-->
+<!--				        f2:'kjhkjhkjhkjhkjhkjhkjhkjhkjh'-->
+<!--				    } -->
+<!--				};-->
+<!--				docClient.put(params, function(err, data){-->
+<!--				    if (err) console.log(err);-->
+<!--				    else-->
+<!--                              {-->
+<!--                              resultData = data;-->
+<!--                              console.log(resultData);-->
+<!--                              -->
+<!--                              }-->
+<!--				});-->
+		}
+		else
+			{
+			console.log("Issue logging in");
+			}
+		
+	}); //end fb login
+	
+		};
+	};
+	// Load the FB JS SDK asynchronously
+	(function(d, s, id){
+	   var js, fjs = d.getElementsByTagName(s)[0];
+	   if (d.getElementById(id)) {return;}
+	   js = d.createElement(s); js.id = id;
+	   js.src = "//connect.facebook.net/en_US/all.js";
+	   fjs.parentNode.insertBefore(js, fjs);
+	 }(document, 'script', 'facebook-jssdk'));
+</script>
+
+</body>
+</html>
