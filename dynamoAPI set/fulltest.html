@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
@@ -24,8 +24,8 @@
         var valText;
         var dynamodb = null;
         var docClient = null;
-        var appId = '932301770202373'; //from facebook
-        var roleArn = 'arn:aws:iam::518052915162:role/awsCrudRole'; //from AWS IAM
+        var appId = '120636118298132'; //from facebook
+        var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
         var resultData = null;
 
 document.getElementById('putThis').onclick = function () {
@@ -38,9 +38,9 @@ document.getElementById('putThis').onclick = function () {
     console.log("Attribute: ", attText);
     console.log("Value: ", valText);
     params = {
-        TableName: 'awsCrudTest',
+        TableName: 'websiteTest',
         Item: {
-            itemId: keyText,
+            itemID: keyText,
             attribute1: valText
         }
     };
@@ -65,9 +65,9 @@ document.getElementById('getThis').onclick = function () {
     console.log("Key Value: ", keyText);
     console.log("Attribute: ", attText);
     params = {
-        TableName: 'awsCrudTest',
+        TableName: 'websiteTest',
         Key: {
-            itemId: keyText
+            itemID: keyText
         },
         ProjectionExpression: "#a",
         ExpressionAttributeNames: {
@@ -90,9 +90,9 @@ document.getElementById('updateThis').onclick = function () {
     console.log("Attribute: ", attText);
     console.log("Value: ", valText);
     params = {
-        TableName: 'awsCrudTest',
+        TableName: 'websiteTest',
         Key: {
-            itemId: keyText
+            itemID: keyText
         },
         ExpressionAttributeNames: {
             '#a': attText
@@ -115,9 +115,9 @@ document.getElementById('deleteThis').onclick = function () {
     keyText = document.getElementById("keyValue").value;
     console.log("Key Value: ", keyText);
     params = {
-        TableName: 'awsCrudTest',
+        TableName: 'websiteTest',
         Key: {
-            itemId: keyText
+            itemID: keyText
         }
     };
     docClient.delete(params, function(err, data){
