@@ -1,0 +1,43 @@
+<!-- JSON: javascript object notation
+purpose: structured data xfer over an internet connection
+prior precedent: XML / AJAX; AJAJ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON EXAMPLE ONE</title>
+</head>
+<body>
+
+<p>we'll introduce JSON, and utilize a javascript object, with keys for each data</p>
+
+<p id="demo0"></p>
+
+<p id="demo1"></p>
+
+<p id="demo2"></p>
+
+
+<script>
+
+var text = '{"employees": ['  +
+'{"firstName":"John","lastName":"Doe" },' + 
+'{"firstName":"Anna","lastName":"Smith"},' +
+'{"firstName":"Peter","lastName":"Jones"}]}'; //JSON payload
+
+obj = JSON.parse(text);
+document.getElementById("demo0").innerHTML = obj.employees[0].firstName + " " + 
+obj.employees[0].lastName;
+
+document.getElementById("demo1").innerHTML = obj.employees[1].firstName + " " + 
+obj.employees[1].lastName;
+
+document.getElementById("demo2").innerHTML = obj.employees[2].firstName + " " + 
+obj.employees[2].lastName;
+
+
+</script>
+
+
+</body>
+</html>
