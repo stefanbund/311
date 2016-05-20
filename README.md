@@ -4,3 +4,7 @@ youtubes! https://www.youtube.com/playlist?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLT
 
 ##to do, 
 http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.03.html
+
+##DynamoDB Javascript API reference
+1. http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.04.html , and
+2. http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#query-property
