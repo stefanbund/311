@@ -1,5 +1,7 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
+##Due Thursday October 6th
+Have the S3 Demo working in your own browser, with CORS, ARN Role, FB App ID. If you have errors, post your issue, with screen shots or copied error text to the 'Issues' forum. 
 ##Due Tuesday, October 4th
 1. Please code each example in this tutorial series on core Javasript, lectured in class: https://github.com/stefanbund/311/blob/master/wk3%2C%20core%20js/wk%203%20js%20examples.pdf
 2. Read through and understand topics in this resource:  https://aws.amazon.com/developers/getting-started/browser/
