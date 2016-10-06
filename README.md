@@ -1,7 +1,7 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
 ##Due  Tuesday October 11th
-Please review and understand the topics and techniques in these materials: 
+0. Please review and understand the topics and techniques in these materials: 
 1. basics of AWS, cloud , and NoSQL databases, with hands-on demo: https://youtu.be/AvBa_dZmm24?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLTv_
 2.  Dynamo DB part 2, integrating DynamoDB with  IAM, and understanding the JS template needed to query and operate. https://youtu.be/4mSVOabj8RA?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLTv_
 3.  study a working example, available at https://s3-us-west-2.amazonaws.com/csu311/fulltest.html
