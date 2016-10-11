@@ -1,5 +1,9 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
+##Due Thursday October 13th
+0. Consult this tutorial to help complete your AWSJSSDK toolkit: https://youtu.be/fj3FLMZ6kgE?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLTv_
+1. Be rounding out your complete solution. New HW will be presented over the weekend. 
+
 ##Due  Tuesday October 11th
 0. Please review and understand the topics and techniques in these materials: 
 1. basics of AWS, cloud , and NoSQL databases, with hands-on demo: https://youtu.be/AvBa_dZmm24?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLTv_
