@@ -1,5 +1,9 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
+##Due Tuesday October 18th
+0. Take a course from Lynda.com involving introductory CSS/HTML via Bootstrap: https://www.lynda.com/Bootstrap-tutorials/Bootstrap-3-Essential-Training/417641-2.html
+1. Go through the hands-on skills, approximately 5 hours, in preparation for lab on 10/18
+
 ##Due Thursday October 13th
 0. Consult this tutorial to help complete your AWSJSSDK toolkit: https://youtu.be/fj3FLMZ6kgE?list=PLuPYdJHhTTxd_dAY-o191FaXZsBIgLTv_
 1. Be rounding out your complete solution. New HW will be presented over the weekend. 
