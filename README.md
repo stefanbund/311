@@ -1,7 +1,7 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
 ##Term Project Sequence
-0. this term your project is staged in 3 phases: 
+ This term your project is staged in 3 phases: 
 1. Phase One. Javascript toolkit, emphasizing S3/DynamoDB interactions with AWS and Facebook/OAuth, hosted live in the cloud
 2. Phase Two. Team concept, navigation hierarchy, full concept, rendered with HTML5 markup. Four pages per team member
 3. Phase Three. Apply Javascript toolkit to enable the webpage to interact with the cloud (i/o, file uploads). Two AWS interactions per page required per team mate, not including loading the hosted page from S3. 
