@@ -1,10 +1,11 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
+#Projects
 ##Annoucing the Final Project in ASP.NET
 In our course we introduce both Javascript and the ASP.NET framework. Students are assigned to create a dynamic, data-driven website using ASP.NET, using this Lynda.com guided course: https://www.lynda.com/ASP-NET-tutorials/ASP-NET-Essential-Training/784-2.html?org=cpp.edu. Students are assigned to complete this sample project, using the Lynda course as a guide and reference. The Due date is the close of the final exam. Students are to submit a Microsoft Word document or PDF including screen shots of their completed project. Each file they created for the project should be copy-pasted into the document (not screen shots), to show their completed work. Per our syllabus, this project is worth 5% of the course credit.
 
 ##Term Project Sequence
-0. This term your project is staged in 3 phases: 
+This term your project is staged in 3 phases: 
 1. Phase One. Javascript toolkit, emphasizing S3/DynamoDB interactions with AWS and Facebook/OAuth, hosted live in the cloud
 2. Phase Two. Team concept, navigation hierarchy, full concept, rendered with HTML5 markup. Four pages per team member
 3. Phase Three. Apply Javascript toolkit to enable the webpage to interact with the cloud (i/o, file uploads). Two AWS interactions per page required per team mate, not including loading the hosted page from S3. 
