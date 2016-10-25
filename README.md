@@ -1,5 +1,8 @@
 # 311
 Interactive Web Development at Cal Poly Pomona CIS
+#Mid Term Date: Thursday, November 3rd
+This syllabus item will be a true/false test. Please bring a long form scantron. 
+
 #Projects
 ##Annoucing the Final Project in ASP.NET
 In our course we introduce both Javascript and the ASP.NET framework. Students are assigned to create a dynamic, data-driven website using ASP.NET, using this Lynda.com guided course: https://www.lynda.com/ASP-NET-tutorials/ASP-NET-Essential-Training/784-2.html?org=cpp.edu. Students are assigned to complete this sample project, using the Lynda course as a guide and reference. The Due date is the close of the final exam. Students are to submit a Microsoft Word document or PDF including screen shots of their completed project. Each file they created for the project should be copy-pasted into the document (not screen shots), to show their completed work. Per our syllabus, this project is worth 5% of the course credit.
@@ -11,6 +14,9 @@ In our course we introduce both Javascript and the ASP.NET framework. Students a
 3. Phase Three. Apply Javascript toolkit to enable the webpage to interact with the cloud (i/o, file uploads). Two AWS interactions per page required per team mate, not including loading the hosted page from S3. 
 
 #Homework 
+## Due Tuesday November 1st
+Have four pages of HTML5 complete, demonstrating the core strategy for your pages. These pages should feed a larger team strategy and support the team's objectives. When presented with a sitemap, the user should be able to navigate the general, top level pages necessary to run your business model. No javascript is required, only HTML pages, empty of data otherwise delivered by javascript. 
+
 ## Due Tuesday October 25th
 Your team must deliver a navigation bar, similar to http://getbootstrap.com/examples/navbar-static-top/, to be used at the top of each page of your site. This requires your team to decide what pages must be made, who will make them, and how they should flow together to support your business process. Draw a navigation diagram to support the creation of a sequence of pages, which bring the user to a task's completion. This need not be the final version, but a working prototype that gives each team member some independence.
 
