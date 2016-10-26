@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+    <script id="facebook-jssdk" src="https://connect.facebook.net/en_US/all.js"></script>
+    <meta charset="UTF-8">
+    <title>AWS CRUD Test</title>
+</head>
+<body>
+    <div id="fb-root"></div>
+		<button id="login">Login</button>
+    <h3>AwsCrud Test I/O</h3>
+    Key Value: <input id="keyValue" type="text" /><br />
+    Attribute: <input id="attributeText" type="text" /><br />
+    Value: <input id="valueText" type="text" /><br />
+    <button id="putThis">Put!</button> | <button id="getThis">Get!</button> | <button id="updateThis">Update!</button> | <button id="deleteThis">Delete!</button>
+	<div>
+	<p id="output">
+	</div>
+
+    <script type="text/javascript">
+        var fbUserId;
+        var params;
+        var keyText;
+        var attText;
+        var valText;
+        var dynamodb = null;
+        var docClient = null;
+        var appId = '120636118298132'; //from facebook
+        var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
+        var resultData = null;
+
+document.getElementById('putThis').onclick = function () {
+    dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    keyText = document.getElementById("keyValue").value;
+    attText = document.getElementById("attributeText").value;
+    valText = document.getElementById("valueText").value;
+    console.log("Key Value: ", keyText);
+    console.log("Attribute: ", attText);
+    console.log("Value: ", valText);
+    params = {
+        TableName: 'websiteTest',
+        Item: {
+            itemID: keyText,
+            attribute1: valText
+        }
+    };
+    docClient.put(params, function(err, data){
+        if (err) console.log(err);
+        else
+        {
+            resultData = data;
+            console.log(resultData);
+
+        }
+    })
+
+
+};
+
+document.getElementById('getThis').onclick = function () {
+    dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    keyText = document.getElementById("keyValue").value;
+    attText = document.getElementById("attributeText").value;
+    console.log("Key Value: ", keyText);
+    console.log("Attribute: ", attText);
+    params = {
+        TableName: 'websiteTest',
+        Key: {
+            itemID: keyText
+        },
+        ProjectionExpression: "#a",
+        ExpressionAttributeNames: {
+            '#a': attText
+        }
+    };
+    docClient.get(params, function (err, data) 
+    {
+        if (err)
+        {
+        	console.log(err, err.stack);
+        }
+        else 
+        {
+        	console.log("success, logging data: ");
+        	console.log(data);//shows keys
+        	console.log("attribute 1 is " + data.Item.attribute1)
+        	//var output = data.Item.attribute1;
+        	l = document.getElementById("output");
+        	l.innerHTML = data.Item.attribute1;
+        }
+    })
+};
+
+document.getElementById('updateThis').onclick = function () {
+    dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    keyText = document.getElementById("keyValue").value;
+    attText = document.getElementById("attributeText").value;
+    valText = document.getElementById("valueText").value;
+    console.log("Key Value: ", keyText);
+    console.log("Attribute: ", attText);
+    console.log("Value: ", valText);
+    params = {
+        TableName: 'websiteTest',
+        Key: {
+            itemID: keyText
+        },
+        ExpressionAttributeNames: {
+            '#a': attText
+        },
+        ExpressionAttributeValues: {
+            ':v': valText
+        },
+        UpdateExpression: 'set #a = :v',
+    };
+
+    docClient.update(params, function (err, data) {
+        if (err) console.log(err);
+        else console.log(data);
+    })
+};
+
+document.getElementById('deleteThis').onclick = function () {
+    dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    keyText = document.getElementById("keyValue").value;
+    console.log("Key Value: ", keyText);
+    params = {
+        TableName: 'websiteTest',
+        Key: {
+            itemID: keyText
+        }
+    };
+    docClient.delete(params, function(err, data){
+    if(err) console.log(err);
+    else console.log(data);
+    });
+};
+
+window.fbAsyncInit = function () {
+    FB.init({ appId: appId });
+
+    document.getElementById('login').onclick = function () {
+
+        FB.login(function (response) {
+            if (response.authResponse) {
+                AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+                    RoleArn: roleArn,
+                    ProviderId: 'graph.facebook.com',
+                    WebIdentityToken: response.authResponse.accessToken
+                });
+            }
+            else {
+                console.log("Issue logging in");
+            }
+
+            // Load the FB JS SDK asynchronously
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/all.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        })
+    }
+}</script>
+</body>
+</html>
