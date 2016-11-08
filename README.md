@@ -18,7 +18,7 @@ In our course we introduce both Javascript and the ASP.NET framework. Students a
 0. For your ongoing inclusion into Assignment 3, please take advantage of these techniques and learning resources: 
 1. javascript cookies, for persisting data across a set of pages: http://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username
 2. dynamodb queries: http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.04.html
-3. displaying data from your AWS/JSON operation inside your HTML5: https://github.com/stefanbund/311/blob/master/dynamoAPI%20set/testKeys-show-output-in-p.html
+3. displaying data from your AWS/JSON operation inside your HTML5: https://github.com/stefanbund/311/blob/master/dynamoAPI%20set/testKeys-show-output-in-p.html (go down to the get section)
 
 ## Due Tuesday November 1st
 Have four pages of HTML5 complete, demonstrating the core strategy for your pages. These pages should feed a larger team strategy and support the team's objectives. When presented with a sitemap, the user should be able to navigate the general, top level pages necessary to run your business model. No javascript is required, only HTML pages, empty of data otherwise delivered by javascript. 
