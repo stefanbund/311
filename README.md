@@ -14,6 +14,9 @@ In our course we introduce both Javascript and the ASP.NET framework. Students a
 3. Phase Three. Apply Javascript toolkit to enable the webpage to interact with the cloud (i/o, file uploads). Two AWS interactions per page required per team mate, not including loading the hosted page from S3. 
 
 #Homework 
+##New Concept 2 for your project: Javascript Nodes
+This example will walk you though how to manage dynamic data. Located at https://s3-us-west-2.amazonaws.com/csu311/usingJSDomNodes.html, this sample is also here on git:https://github.com/stefanbund/311/blob/master/dynamoAPI%20set/usingJSDomNodes.html. It demonstrates how you can harness a for-loop to take a collection of data, then display the data in a tabular, line-by-line format. Ecommerce and more professional environments (like google search results) tend to use this capacity. 
+
 ## New Concepts for inclusion into your projects, November 8 - December 4
 0. For your ongoing inclusion into Assignment 3, please take advantage of these techniques and learning resources: 
 1. javascript cookies, for persisting data across a set of pages: http://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username
