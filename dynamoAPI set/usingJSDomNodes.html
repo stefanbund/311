@@ -37,7 +37,6 @@ document.body.appendChild(c); //put a comment for your team, debugging
 var idnum = i + 4;
 var nodename = "p" + idnum;
 var dynamicDiv = document.createElement("div");//make a new div, dynamically
-
 //put a p in the div
 
 var newp = document.createElement("p");
@@ -47,13 +46,14 @@ newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
 
 var grabThis = document.getElementById(dynamicDiv);
 
+var idValueForNewDiv = "divid" + i;
+dynamicDiv.setAttribute("id", idValueForNewDiv); //set id for this new item, so we can talk to it later
 
 //var nodemsg = "node " + i + " ";
 //var node2 = document.createTextNode(nodemsg);
 dynamicDiv.appendChild(newp); //append p with its new text element inside it
 var element = document.getElementById("bod");
 element.appendChild(dynamicDiv);
-
 }
 </script>
 
