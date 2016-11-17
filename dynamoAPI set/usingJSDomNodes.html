@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<body id="bod">
+
+<div id="firstdiv">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+
+var para = document.createElement("p");
+var node = document.createTextNode("This is new.");
+para.appendChild(node);
+var element = document.getElementById("firstdiv");
+element.appendChild(para); 
+
+for(var i = 0; i < 15; i++)
+{
+if(i == 0)
+{
+var announcementP = document.createElement("p");
+var announcement = document.createTextNode("NOW WE BEGIN TO WORK WITH DATA, DYNAMICALLY, BELOW:");
+announcementP.appendChild(announcement);
+var element = document.getElementById("firstdiv");
+element.appendChild(announcementP); 
+
+var commentText = "END ANNOUNCEMENT PART "; 
+var actualComment = document.createComment(commentText);
+document.body.appendChild(actualComment); //put a comment for your team, debugging
+}
+var commentmsg = "begin div " + i; 
+var c = document.createComment(commentmsg);
+document.body.appendChild(c); //put a comment for your team, debugging
+
+//console.log("running" + i); //proves for is working
+var idnum = i + 4;
+var nodename = "p" + idnum;
+var dynamicDiv = document.createElement("div");//make a new div, dynamically
+
+//put a p in the div
+
+var newp = document.createElement("p");
+var newPMessage = "my data is saying: " + i;
+var nodeToPaint = document.createTextNode(newPMessage);//what to print
+newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
+
+var grabThis = document.getElementById(dynamicDiv);
+
+
+//var nodemsg = "node " + i + " ";
+//var node2 = document.createTextNode(nodemsg);
+dynamicDiv.appendChild(newp); //append p with its new text element inside it
+var element = document.getElementById("bod");
+element.appendChild(dynamicDiv);
+
+}
+</script>
+
+</body>
+</html>
