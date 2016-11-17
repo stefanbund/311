@@ -15,7 +15,9 @@ In our course we introduce both Javascript and the ASP.NET framework. Students a
 
 #Homework 
 ##New Concept 2 for your project: Javascript Nodes
-This example will walk you though how to manage dynamic data. Located at https://s3-us-west-2.amazonaws.com/csu311/usingJSDomNodes.html, this sample is also here on git:https://github.com/stefanbund/311/blob/master/dynamoAPI%20set/usingJSDomNodes.html. It demonstrates how you can harness a for-loop to take a collection of data, then display the data in a tabular, line-by-line format. Ecommerce and more professional environments (like google search results) tend to use this capacity. 
+0. This example will walk you though how to manage dynamic data. Located at https://s3-us-west-2.amazonaws.com/csu311/usingJSDomNodes.html, this sample is also here on git:https://github.com/stefanbund/311/blob/master/dynamoAPI%20set/usingJSDomNodes.html. It demonstrates how you can harness a for-loop to take a collection of data, then display the data in a tabular, line-by-line format. Ecommerce and more professional environments (like google search results) tend to use this capacity. 
+1. The power of the for-loop in JS is also a worthy topic to review. This article on MDN does it well:  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length#Iterating_over_an_array
+2. The notion of adding content dynamically also dovetails many element types available with HTML5 (article, blockquote, footer, etc). Here is an excellent discussion of how to add multiple FIGCAPTIONs to your HTML (figure captions to images): http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_figcaption_create 
 
 ## New Concepts for inclusion into your projects, November 8 - December 4
 0. For your ongoing inclusion into Assignment 3, please take advantage of these techniques and learning resources: 
