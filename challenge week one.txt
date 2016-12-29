@@ -1,8 +1,0 @@
-challenge:
-
-construct a means by which your html offers a button,  and onclick, the button triggers a calculation that: 
-
-1. takes a number from the user, entered into a text input
-2. calculates the square of that number (x*x)
-
-take the result of (2), then places it within a paragraph
