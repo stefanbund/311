@@ -3,6 +3,9 @@
 ##Amenities: 
 our youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
 
+##Javascript and AWS Resources
+0. the basics of configuring buckets, CORS and the structure of AWS-JS-SDK requests: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html
+
 For each microproject, be sure to submit the URL of a blog, which embeds a youtube video of your weekly project. 
 ###Blog submission link. 
 Please submit your blog's URL to this site here: https://goo.gl/forms/Mjz59CZbJmUgdaKx2
