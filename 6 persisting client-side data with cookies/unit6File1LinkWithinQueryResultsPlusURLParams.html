@@ -27,7 +27,7 @@
                                                                             ProviderId: 'graph.facebook.com',
                                                                             WebIdentityToken: response.authResponse.accessToken
                                                                             });
-                                                                            testQuery();//will write to output div after page loads
+                    testQuery();//will write to output div after page loads
                 } else if (response.status === 'not_authorized') {
                     // The person is logged into Facebook, but not your app.
                     document.getElementById('status').innerHTML = 'Please log ' +
@@ -133,7 +133,8 @@
                              
                              var anchor = document.createElement("a");  // create a new anchor
                              var attributeForAnchor = document.createAttribute("href");        // Create a "href" attribute
-                             attributeForAnchor.value = "unit6showCRUDafterURLParamsArePased.html/?value1=me&value2=meToo&value3=meThree"; // Set the value of the href attribute
+                            //https://s3.amazonaws.com/aws-website-iwdsacookbook-qka58/ url prefix
+attributeForAnchor.value = "https://s3.amazonaws.com/aws-website-iwdsacookbook-qka58/unit6showCRUDafterURLParamsArePased.html?value1=me&value2=meToo&value3=meThree"; // Set the value of the href attribute
                              anchor.setAttributeNode(attributeForAnchor);// Add the href attribute to <a>
                              anchor.appendChild(nodeWithMessage);
                              newp.appendChild(anchor);
