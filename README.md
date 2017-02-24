@@ -9,4 +9,5 @@ our youtube playlist, containing replays of technical demos, in class: https://w
 ###Blog submission link. 
 Please submit your blog's URL to this site here: https://goo.gl/forms/Mjz59CZbJmUgdaKx2 once you have submitted your blog's URL, you are good
 
-For unit 1, if you did not receive full credit and wish to try again, please redo your video with missing elements, in next week's unit 2 video. This is a one-time extension so you may learn the video submission process. 
+###ASP.NET Final Project
+An interactive ASP.NET project has been created for you to follow, where a project is created, start to finish. It is available here: https://www.lynda.com/ASP-NET-tutorials/ASP-NET-Essential-Training/784-2.html
