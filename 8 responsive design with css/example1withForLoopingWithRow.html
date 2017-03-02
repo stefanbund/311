@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="political news and satire">
+<meta name="author" content="Stefan Bund">
+<link rel="icon" href="favicon.ico">
+<title>EXAMPLE BOOTSTRAP</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body id="bod">
+
+
+<div class="jumbotron">
+<div class="container" >
+<h1>Hello, Poly!</h1>
+<p> This will be text seen within the JUMBOTRON!</p>
+<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn More &raquo;</a> </p>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+
+<div class="col-md-8">
+<h2>column 1 </h2>
+<p>model paragraph model paragraph model paragraph model paragraph model paragraph </p>
+<p><a class="btn btn-default" href="#" role="button">View Details&raquo; </a></p>
+</div>
+
+<div class="col-md-4">
+<h2>column 2</h2>
+<p>model paragraph model paragraph model paragraph model paragraph model paragraph </p>
+<p><a class="btn btn-default" href="#" role="button">View Details&raquo; </a></p>
+</div>
+<script>
+            var text = '{"employees":[' +
+            '{"firstName":"John","lastName":"Doe" },' +
+            '{"firstName":"Anna","lastName":"Smith" },' +
+            '{"firstName":"Peter","lastName":"Jones" }]}';
+            
+            var data = JSON.parse(text);
+            
+            //document.getElementById("myDiv").innerHTML = obj.employees[0].firstName + " " + obj.employees[0].lastName; //ok
+
+            var outputDiv = document.getElementById("myDiv");
+            data.employees.forEach(function(element){
+                         console.log(element);
+                         })
+            
+            data.employees.forEach(function(item, index, array)
+                                   {
+            				//set up a new row for every two items
+            				var x = index / 2; 
+            				console.log("the value of the index is " + x);//in case it divides by 2 perfectly, it's a new row
+            				if(index %2 == 0 )
+            					{
+            					//make the initial row if zero
+            				var cont = document.createElement("div"); //make a row
+            					cont.setAttribute("class", "container");
+            					var newRow = document.createElement("div"); //make a row
+            					newRow.setAttribute("class", "row");
+									console.log("index is " + index + " for item, " + item.firstName);
+           							var dynamicDiv = document.createElement("div");//make a new div, dynamically
+                                   //put a p in the div
+                                   var newp = document.createElement("p");
+                                   var newPMessage = "my data is saying: " + item.firstName + " " + item.lastName + "  "; //what's your message?
+                                   var nodeToPaint = document.createTextNode(newPMessage);//encode your message in a text node, for printing
+                                   newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
+                                   
+                                   dynamicDiv.appendChild(newp);//append the paragraph to the new div
+                                   dynamicDiv.setAttribute("class", "col-md-6");
+                                   //attach the div to the body
+                                   var element = document.getElementById("bod");
+                                   element.appendChild(cont);//container
+                                   element.appendChild(newRow);
+                                   element.appendChild(dynamicDiv);
+            					}else 
+            						{
+            						console.log("index is " + index + " for item, " + item.firstName);
+           							var dynamicDiv = document.createElement("div");//make a new div, dynamically
+                                   //put a p in the div
+                                   var newp = document.createElement("p");
+                                   var newPMessage = "my data is saying: " + item.firstName + " " + item.lastName + "  "; //what's your message?
+                                   var nodeToPaint = document.createTextNode(newPMessage);//encode your message in a text node, for printing
+                                   newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
+                                   
+                                   dynamicDiv.appendChild(newp);//append the paragraph to the new div
+                                   dynamicDiv.setAttribute("class", "col-md-6");
+                                   //attach the div to the body
+                                   var element = document.getElementById("bod");
+                                   element.appendChild(dynamicDiv);
+            						}
+                                   });
+                         
+            </script>
+
+
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
