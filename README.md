@@ -1,7 +1,8 @@
 
 #Stefan Bund's CIS 311 website. Please view our Syllabus above
 ## Final Exam Date
-Thursday, exam week, 11:30- 1:30 PM
+1PM class: Thursday, exam week, 11:30- 1:30 PM
+6PM class: Thursday, exam week, 6 - 8 PM
 
 ##Amenities: 
 our youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
