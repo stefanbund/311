@@ -3,7 +3,9 @@
 ## Final Exam Date is TBA
 
 ##Amenities: 
-our youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
+our Javascript youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
+
+Our Bootstrap youtube playlist, demonstrating all responsive HTML5/CSS: https://www.youtube.com/playlist?list=PLuPYdJHhTTxcBpmKAaqCR9E6aE8tNhCov
 
 ##Javascript and AWS Resources
 0. the basics of configuring buckets, CORS and the structure of AWS-JS-SDK requests: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html
