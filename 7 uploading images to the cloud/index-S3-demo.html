@@ -1,132 +1,128 @@
 <!DOCTYPE html>
-
 <html>
-    
     <head>
-        
         <title>AWS SDK for JavaScript - Sample Application</title>
-        
-        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.12.min.js"></script>
-        
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
     </head>
-    
     <body>
-        
         <input type="file" id="file-chooser" />
-        
-        <button id="upload-button" style="display:none">Upload to S3</button>
-        
+        <button id="upload-button">Upload to S3</button>
         <div id="results"></div>
-        
         <div id="fb-root"></div>
         
-        <script type="text/javascript">
-            
-            var appId = '120636118298132';
-            
-            var roleArn = 'arn:aws:iam::165021830876:role/csu311role';
-            
-            var bucketName = 'csu311';
-            
-            AWS.config.region = 'us-west-2';
-            
-            
-            var fbUserId;
-            
-            var bucket = new AWS.S3({
-                                    
-                                    params: {
-                                    
-                                    Bucket: bucketName
-                                    
-                                    }
-                                    
-                                    });
-                                    
-                                    var fileChooser = document.getElementById('file-chooser');
-                                    
-                                    var button = document.getElementById('upload-button');
-                                    
-                                    var results = document.getElementById('results');
-                                    
-                                    button.addEventListener('click', function () {
-                                                            
-                                                            var file = fileChooser.files[0];
-                                                            
-                                                            if (file) {
-                                                            
-                                                            results.innerHTML = '';
-                                                            
-                                                            //Object key will be facebook-USERID#/FILE_NAME
-                                                            
-                                                            var objKey = 'facebook-' + fbUserId + '/' + file.name;
-                                                            
-                                                            var params = {
-                                                            
-                                                            Key: objKey,
-                                                            
-                                                            ContentType: file.type,
-                                                            
-                                                            Body: file,
-                                                            
-                                                            ACL: 'public-read'
-                                                            
-                                                            };
-                                                            
-                                                            bucket.putObject(params, function (err, data) {
-                                                                             
-                                                                             if (err) {
-                                                                             
-                                                                             results.innerHTML = 'ERROR: ' + err;
-                                                                             
-                                                                             } else {
-                                                                             
-                                                                             listObjs();
-                                                                             
-                                                                             }
-                                                                             
-                                                                             });
-                                                            
-                                                            } else {
-                                                            
-                                                            results.innerHTML = 'Nothing to upload.';
-                                                            
-                                                            }
-                                                            
-                                                            }, false);
-                                                            
-                                                            function listObjs() {
-                                                                
-                                                                var prefix = 'facebook-' + fbUserId;
-                                                                
-                                                                bucket.listObjects({
-                                                                                   
-                                                                                   Prefix: prefix
-                                                                                   
-                                                                                   }, function (err, data) {
-                                                                                   
-                                                                                   if (err) {
-                                                                                   
-                                                                                   results.innerHTML = 'ERROR: ' + err;
-                                                                                   
-                                                                                   } else {
-                                                                                   
-                                                                                   var objKeys = "";
-                                                                                   
-                                                                                   data.Contents.forEach(function (obj) {
-                                                                                                         
-                                                                                                         objKeys += obj.Key + "<br>";
-                                                                                                         
-                                                                                                         });
-                                                                                   
-                                                                                   results.innerHTML = objKeys;
-                                                                                   
-                                                                                   }
-                                                                                   
-                                                                                   });
-                                                                                   
-                                                            }
+        <!--fb login piece -->
+        <script>
+            var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
+            var appId = '120636118298132'; //from facebook
+            function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+                if (response.status === 'connected') {
+                    // Logged into your app and Facebook.
+                    AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+                                                                            RoleArn: roleArn,
+                                                                            ProviderId: 'graph.facebook.com',
+                                                                            WebIdentityToken: response.authResponse.accessToken
+                                                                            });
+                } else if (response.status === 'not_authorized') {
+                    // The person is logged into Facebook, but not your app.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                } else {
+                    // The person is not logged into Facebook, so we're not sure if
+                    // they are logged into this app or not.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+                }
+            }
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState()
+        {
+            FB.getLoginStatus(function(response) {
+                              statusChangeCallback(response);
+                              });
+        }
         
+        window.fbAsyncInit = function()
+        {
+            FB.init({
+                    appId      : appId,
+                    cookie     : true,  // enable cookies to allow the server to access
+                    // the session
+                    xfbml      : true,  // parse social plugins on this page
+                    version    : 'v2.8' // use graph api version 2.8
+                    });
+                    FB.getLoginStatus(function(response) {
+                                      statusChangeCallback(response);
+                                      });
+        };
+        
+        // Load the SDK asynchronously
+        (function(d, s, id)
+         {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <!-- ui and upload piece -->
+        <script type="text/javascript">
+            var appId = '120636118298132';
+            var roleArn = 'arn:aws:iam::165021830876:role/csu311role';
+            var bucketName = 'csu311';
+            AWS.config.region = 'us-west-2';
+            var fbUserId;
+            var bucket = new AWS.S3({
+                                    params: {
+                                    Bucket: bucketName
+                                    }
+                                    });
+                                    var fileChooser = document.getElementById('file-chooser');
+                                    var button = document.getElementById('upload-button');
+                                    var results = document.getElementById('results');
+                                    button.addEventListener('click', function () {
+                                                            var file = fileChooser.files[0];
+                                                            if (file) {
+                                                            results.innerHTML = '';
+                                                            //Object key will be facebook-USERID#/FILE_NAME
+                                                            var objKey = 'facebook-' + fbUserId + '/' + file.name;
+                                                            var params = {
+                                                            Key: objKey,
+                                                            ContentType: file.type,
+                                                            Body: file,
+                                                            ACL: 'public-read'
+                                                            };
+                                                            bucket.putObject(params, function (err, data) {
+                                                                             if (err) {
+                                                                             results.innerHTML = 'ERROR: ' + err;
+                                                                             } else {
+                                                                             listObjs();
+                                                                             }
+                                                                             });
+                                                            } else {
+                                                            results.innerHTML = 'Nothing to upload.';
+                                                            }
+                                                            }, false);
+                                                            function listObjs() {
+                                                                var prefix = 'facebook-' + fbUserId;
+                                                                bucket.listObjects({
+                                                                                   Prefix: prefix
+                                                                                   }, function (err, data) {
+                                                                                   if (err) {
+                                                                                   results.innerHTML = 'ERROR: ' + err;
+                                                                                   } else {
+                                                                                   var objKeys = "";
+                                                                                   data.Contents.forEach(function (obj) {
+                                                                                                         objKeys += obj.Key + "<br>";
+                                                                                                         });
+                                                                                   results.innerHTML = objKeys;
+                                                                                   }
+                                                                                   });
+                                                            }
         /*!
          
          * Login to your application using Facebook.
