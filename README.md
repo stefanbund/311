@@ -1,8 +1,8 @@
 
 #Stefan Bund's CIS 311 website. Please view our Syllabus above
 ## Final Exam Times
-1 PM class, final is Thursday June 8th 11:30am - 1:30 am
-6 PM class, final is Thursday June 8th 6 - 8pm
+#### 1 PM class, final is Thursday June 8th 11:30am - 1:30 am. 
+#### 6 PM class, final is Thursday June 8th 6 - 8pm
 
 ## Amenities: 
 our Javascript youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
