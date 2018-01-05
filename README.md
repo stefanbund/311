@@ -4,7 +4,7 @@
 Please see Syllabus for your session's time.
 
 ## Amenities: 
-our Javascript youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxfQDReHK0YwrWlfxGtIurcF
+our Javascript youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxcUiKEv4qVI2oQopmroijc5
 
 Our Bootstrap youtube playlist, demonstrating all responsive HTML5/CSS: https://www.youtube.com/playlist?list=PLuPYdJHhTTxcBpmKAaqCR9E6aE8tNhCov
 
