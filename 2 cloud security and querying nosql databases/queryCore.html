@@ -14,15 +14,15 @@
     var fbUserId;
     //var dynamodb = null;
     //var docClient = null;
-    var appId = '2039095499668264'; //from facebook
-    var roleArn = 'arn:aws:iam::165021830876:role/spring2017Dynamodb'; //from AWS IAM
+    var appId = '518819998517228'; //from facebook
+    var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
 
 document.getElementById('doQuery').onclick = function () {
     dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
     docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
     
     var params = {
-    TableName:'mainTest',
+    TableName:'myTable',
     KeyConditionExpression:'itemID = :vvv',
    // ExpressionAttributeNames:{
      //   'itemid':'itemID'
