@@ -9,8 +9,8 @@
         <p id="status"></p>
         <div id="output"></div>
         <script>
-            var roleArn = 'arn:aws:iam::165021830876:role/spring2017Dynamodb'; //from AWS IAM
-            var appId = '120636118298132'; //from facebook
+            var roleArn = 'arn:aws:iam::165021830876:role/tanrole'; //from AWS IAM
+            var appId = '518819998517228'; //from facebook
             // This is called with the results from from FB.getLoginStatus().
             function statusChangeCallback(response) {
                 console.log('statusChangeCallback');
@@ -92,7 +92,7 @@
              FB.api('/me', function(response) {
                     console.log('Successful login for: ' + response.name);
                     document.getElementById('status').innerHTML =
-                    'Thanks for logging in, ' + response.name + '!';
+                    'Thanks for logging in, ' + response.name + '!';le
                     });
          }
         
@@ -101,7 +101,7 @@
             docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
             
             var params = {
-                TableName:'mainTest',
+                TableName:'tantable',
                 KeyConditionExpression:'itemID = :vvv',
                 ExpressionAttributeValues: {
                     ':vvv':'777777777'
