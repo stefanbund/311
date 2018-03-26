@@ -6,7 +6,7 @@ Please view our Syllabus above
 Please see Syllabus for your session's time.
 
 ## Amenities: 
-our Javascript youtube playlist, containing replays of technical demos, in class: 
+our Javascript youtube playlist, containing replays of technical demos, in class: https://www.youtube.com/playlist?list=PLuPYdJHhTTxeTQUF3-Iu0WlImHIrbJdDo
 
 ## Javascript and AWS Resources
 the basics of configuring buckets, CORS and the structure of AWS-JS-SDK requests: http://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html
