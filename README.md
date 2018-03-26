@@ -1,5 +1,5 @@
 
-#Stefan Bund's CIS 311 website. 
+## Stefan Bund's CIS 311 
 Please view our Syllabus above
 
 ## Final Exam Times
