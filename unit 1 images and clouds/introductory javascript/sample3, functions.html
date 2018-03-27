@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="test"> </p>
+
+<script>
+    var person =
+    {
+        firstName   : "Betty",
+        lastName    : "Jones",
+        id          : 5566,
+        fullName    : function(){
+            return this.firstName + "<br>" + this.lastName;
+        }
+    };
+
+document.getElementById("test").innerHTML = person.fullName(); //run the member function in the object, above
+</script>
+
+</body>
+</html>
