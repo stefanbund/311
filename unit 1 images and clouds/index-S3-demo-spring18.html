@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AWS SDK for JavaScript - Sample Application</title>
+        <title>CIS 311 initial login example, and photo uploader</title>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+        <script id="facebook-jssdk" src="https://connect.facebook.net/en_US/all.js"></script>
+       
     </head>
     <body>
+        <button id="login">Login</button>
+    
         <input type="file" id="file-chooser" />
         <button id="upload-button" style="display:none">Upload to S3</button> <!-- button is hidden until login is verified -->
         <div id="results"></div>
@@ -13,13 +17,13 @@
         
         <!--Javascript -->
         <script>
-            var roleArn = 'arn:aws:iam::165021830876:role/tanrole'; //from AWS IAM
-            var appId = '518819998517228'; //from facebook
+            var roleArn = 'arn:aws:iam::165021830876:role/joelspolicy2018'; //from AWS IAM
+            var appId = '231490547399345'; //from facebook
 			var fbUserId;
 			
             function statusChangeCallback(response) {
                 console.log('statusChangeCallback');
-                console.log(response);
+                console.log('status change callback was ' + response);
                 if (response.status === 'connected') {
                     // Logged into your app and Facebook.
                     bucket.config.credentials = new AWS.WebIdentityCredentials({ //WIF
@@ -78,8 +82,8 @@
 			}(document, 'script', 'facebook-jssdk'));
 			
 			
-            var bucketName = 'aws-website-iwdsacookbook-qka58'; //CHANGE TO YOUR S3 BUCKET NAME
-           // AWS.config.region = 'us-west-2'; //VERIFY YOUR S3 BUCKET REGION
+            var bucketName = 'samplestarterbucketpring18'; //CHANGE TO YOUR S3 BUCKET NAME
+           AWS.config.region = 'us-west-2'; //VERIFY YOUR S3 BUCKET REGION
 
             var bucket = new AWS.S3({
 				params: {
@@ -102,7 +106,7 @@
 						Body: file,
 						ACL: 'public-read'
 						};
-					var s = "https://s3.amazonaws.com/aws-website-iwdsacookbook-qka58/" + objKey;
+					var s = "https://s3.amazonaws.com/samplestarterbucketpring18/" + objKey;
 					console.log("IMAGE WILL LOAD " + s);
 
 					bucket.putObject(params, function (err, data) {
@@ -137,6 +141,33 @@
 					});
 			}
         
+			
+			//FB / AWS
+			window.fbAsyncInit = function () {
+			    FB.init({ appId: appId });
+			    document.getElementById('login').onclick = function () {
+			        FB.login(function (response) {
+			                 if (response.authResponse) {
+			                 AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+			                                                                         RoleArn: roleArn,
+			                                                                         ProviderId: 'graph.facebook.com',
+			                                                                         WebIdentityToken: response.authResponse.accessToken
+			                                                                         });
+			                 }
+			                 else {
+			                 console.log("Issue logging in");
+			                 }
+			                 // Load the FB JS SDK asynchronously
+			                 (function (d, s, id) {
+			                  var js, fjs = d.getElementsByTagName(s)[0];
+			                  if (d.getElementById(id)) { return; }
+			                  js = d.createElement(s); js.id = id;
+			                  js.src = "https://connect.facebook.net/en_US/all.js";
+			                  fjs.parentNode.insertBefore(js, fjs);
+			                  }(document, 'script', 'facebook-jssdk'));
+			                 })
+			    }
+			}//added to kick off initial login button
             </script>
 			
     </body>
