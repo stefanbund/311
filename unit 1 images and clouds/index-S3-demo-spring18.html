@@ -17,8 +17,8 @@
         
         <!--Javascript -->
         <script>
-            var roleArn = 'arn:aws:iam::165021830876:role/joelspolicy2018'; //from AWS IAM
-            var appId = '231490547399345'; //from facebook
+            var roleArn = 'arn:aws:iam::165021830876:role/newSpringRole2018'; //from AWS IAM
+            var appId = '196014147795594'; //from facebook
 			var fbUserId;
 			
             function statusChangeCallback(response) {
@@ -142,32 +142,7 @@
 			}
         
 			
-			//FB / AWS
-			window.fbAsyncInit = function () {
-			    FB.init({ appId: appId });
-			    document.getElementById('login').onclick = function () {
-			        FB.login(function (response) {
-			                 if (response.authResponse) {
-			                 AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
-			                                                                         RoleArn: roleArn,
-			                                                                         ProviderId: 'graph.facebook.com',
-			                                                                         WebIdentityToken: response.authResponse.accessToken
-			                                                                         });
-			                 }
-			                 else {
-			                 console.log("Issue logging in");
-			                 }
-			                 // Load the FB JS SDK asynchronously
-			                 (function (d, s, id) {
-			                  var js, fjs = d.getElementsByTagName(s)[0];
-			                  if (d.getElementById(id)) { return; }
-			                  js = d.createElement(s); js.id = id;
-			                  js.src = "https://connect.facebook.net/en_US/all.js";
-			                  fjs.parentNode.insertBefore(js, fjs);
-			                  }(document, 'script', 'facebook-jssdk'));
-			                 })
-			    }
-			}//added to kick off initial login button
+			
             </script>
 			
     </body>
