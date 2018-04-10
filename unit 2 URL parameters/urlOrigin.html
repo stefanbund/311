@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>originate url parameters, pass them elsewhere!</title>
+        <meta charset="UTF-8">
+            </head>
+    <body id="bod">
+        <p id="status"></p>
+        <div id="output">
+               	Set URL parameter #1: <input id="k" type="text" /><br />
+        		Set URL parameter #2: <input id="a" type="text" /><br />
+        		Set URL parameter #3: <input id="v" type="text" /><br />
+         </div>
+         <div>
+         <button id="pushURLParams">press me to push our url params to the destination</button>
+         </div>
+
+        <script>
+        document.getElementById('pushURLParams').onclick = function () 
+        {
+        	prepUrl(); 	   
+         };
+
+        function prepUrl()
+        {
+        	//first get the inputs from the user
+        	var k = document.getElementById("k").value; 
+        	var a = document.getElementById("a").value; 
+        	var v = document.getElementById("v").value; 
+			
+			var end = "./destinationUrlReader.html?value1=" + k + "&value2=" + a + "&value3=" + v; // Set the value of the href attribute
+			window.location.href = end;
+        	
+        };
+        </script>
+        
+       
+            
+            </body>
+</html>

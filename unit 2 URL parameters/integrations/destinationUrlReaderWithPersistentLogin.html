@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+
+        <title>destination url reader</title>
+        <meta charset="UTF-8">
+            </head>
+    <body>
+        <h3>AwsCrud Test I/O</h3>
+        <p id="status"></p>
+        Key Value: <input id="keyValue" type="text" /><br />
+        Attribute: <input id="attributeText" type="text" /><br />
+        Value: <input id="valueText" type="text" /><br />
+        <button id="putThis">Put!</button> | <button id="getThis">Get!</button> | <button id="updateThis">Update!</button> | <button id="deleteThis">Delete!</button>
+        <div>
+            <p id="output">
+        </div>
+        <script>
+        var x = breakUpURLParameters(url);
+        console.log(x.search);
+        console.log("1  = " + x.search.value1); //please refer to http://www.w3schools.com/jsref/jsref_map.asp for example code
+        console.log("2  = " + x.search.value2);
+        console.log("3  = " + x.search.value3);
+        document.getElementById("keyValue").value = x.search.value1;//assign your url parameter to be placeholder for your query boxes, to show off
+        document.getElementById("attributeText").value = x.search.value2;
+        document.getElementById("valueText").value = x.search.value3;
+        
+        
+        </script>
+        <script>
+            var roleArn = 'arn:aws:iam::165021830876:role/spring2017Dynamodb'; //from AWS IAM
+            var appId = '120636118298132'; //from facebook
+            // This is called with the results from from FB.getLoginStatus().
+            function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+                // The response object is returned with a status field that lets the
+                // app know the current login status of the person.
+                // Full docs on the response object can be found in the documentation
+                // for FB.getLoginStatus().
+                if (response.status === 'connected') {
+                    // Logged into your app and Facebook.
+                    AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+                                                                            RoleArn: roleArn,
+                                                                            ProviderId: 'graph.facebook.com',
+                                                                            WebIdentityToken: response.authResponse.accessToken
+                                                                            });
+                    //createUIForCRUD();
+                    //testAPI();
+                    var url = window.location.href;
+                    console.log("url = " + url);
+                    //readURLParametersOnLoad(url);
+                    
+                    //SECOND
+                    var x = breakUpURLParameters(url);
+                    console.log(x.search);
+                    console.log("1  = " + x.search.value1); //please refer to http://www.w3schools.com/jsref/jsref_map.asp for example code
+                    console.log("2  = " + x.search.value2);
+                    console.log("3  = " + x.search.value3);
+                    document.getElementById("keyValue").value = x.search.value1;//assign your url parameter to be placeholder for your query boxes, to show off
+                    document.getElementById("attributeText").value = x.search.value2;
+                    document.getElementById("valueText").value = x.search.value3;
+                    
+                } else if (response.status === 'not_authorized') {
+                    // The person is logged into Facebook, but not your app.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this app.';
+                } else {
+                    // The person is not logged into Facebook, so we're not sure if
+                    // they are logged into this app or not.
+                    document.getElementById('status').innerHTML = 'Please log ' +
+                    'into Facebook.';
+                    
+                    var url = window.location.href;
+                    console.log("url = " + url);
+                    //readURLParametersOnLoad(url);
+                    
+                    //SECOND
+                    
+                }
+            }
+        
+        //analyze and output the url parameters as a useful array to caller, based upon http://stackoverflow.com/a/26434126
+        function breakUpURLParameters(url) {
+            //  create a link in the DOM and set its href
+            var link = document.createElement('a');
+            link.setAttribute('href', url);
+            console.log("path variable is " + url);
+            
+            //  return an easy-to-use object that breaks apart the path
+            return {
+                host:     link.hostname,  //  'example.com'
+                port:     link.port,      //  12345
+                search:   mapMaker(link.search),  //  {startIndex: 1, pageSize: 10}
+                path:     link.pathname,  //  '/blog/foo/bar'
+                protocol: link.protocol   //  'http:'
+            }
+        }
+        
+        /**
+         *  Convert search param string into an object or array
+         *  '?startIndex=1&pageSize=10' -> {startIndex: 1, pageSize: 10}
+         */
+        function mapMaker(search, preserveDuplicates) {
+            //  option to preserve duplicate keys (e.g. 'sort=name&sort=age')
+            preserveDuplicates = preserveDuplicates || false;  //  disabled by default
+            
+            var outputNoDupes = {};
+            var returnableArray = [];  //  optional output array to preserve duplicate keys
+            
+            //  sanity check
+            if(!search) throw new Error('mapMaker: your search input param is misformed?');
+            
+            //  remove ? character from your url (?foo=1&bar=2 -> 'foo=1&bar=2')
+            search = search.split('?')[1];
+            
+            //  split apart your keys into a useful array of key/value pairs ('foo=1&bar=2' -> ['foo=1', 'bar=2'])
+            search = search.split('&');
+            
+            //  separate keys from values (['foo=1', 'bar=2'] -> [{foo:1}, {bar:2}])
+            //  then package as an array for your caller to use as variables
+            returnableArray = search.map(function(keyval){
+                                         var out = {};
+                                         keyval = keyval.split('=');
+                                         out[keyval[0]] = keyval[1];
+                                         outputNoDupes[keyval[0]] = keyval[1]; //  might as well do the no-dupe work too while we're in the loop
+                                         return out;
+                                         });
+                                         
+                                         return (preserveDuplicates) ? returnableArray : outputNoDupes;
+        }
+
+        
+        // This function is called when someone finishes with the Login
+        // Button.  See the onlogin handler attached to it in the sample
+        // code below.
+        function checkLoginState()
+        {
+            FB.getLoginStatus(function(response) {
+                              statusChangeCallback(response);
+                              });
+        }
+        
+        window.fbAsyncInit = function()
+        {
+            FB.init({
+                    appId      : appId,
+                    cookie     : true,  // enable cookies to allow the server to access
+                    // the session
+                    xfbml      : true,  // parse social plugins on this page
+                    version    : 'v2.8' // use graph api version 2.8
+                    });
+                    
+                    // Now that we've initialized the JavaScript SDK, we call
+                    // FB.getLoginStatus().  This function gets the state of the
+                    // person visiting this page and can return one of three states to
+                    // the callback you provide.  They can be:
+                    //
+                    // 1. Logged into your app ('connected')
+                    // 2. Logged into Facebook, but not your app ('not_authorized')
+                    // 3. Not logged into Facebook and can't tell if they are logged into
+                    //    your app or not.
+                    //
+                    // These three cases are handled in the callback function.
+                    
+                    FB.getLoginStatus(function(response) {
+                                      statusChangeCallback(response);
+                                      });
+                                      
+        };
+        
+        // Load the SDK asynchronously
+        (function(d, s, id)
+         {
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+         
+         // Here we run a very simple test of the Graph API after login is
+         // successful.  See statusChangeCallback() for when this call is made.
+         function testAPI() {
+             console.log('Welcome!  Fetching your information.... ');
+             FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                    document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
+                    });
+         }
+        
+            </script>
+        
+        
+        <script>
+            var fbUserId;
+            var params;
+            var keyText;
+            var attText;
+            var valText;
+            var dynamodb = null;
+            var docClient = null;
+            var appId = '120636118298132'; //from facebook
+            var roleArn = 'arn:aws:iam::165021830876:role/csu311role'; //from AWS IAM
+            var resultData = null;
+            
+            document.getElementById('putThis').onclick = function () {
+                dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+                docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+                keyText = document.getElementById("keyValue").value;
+                attText = document.getElementById("attributeText").value;
+                valText = document.getElementById("valueText").value;
+                console.log("Key Value: ", keyText);
+                console.log("Attribute: ", attText);
+                console.log("Value: ", valText);
+                params = {
+                    TableName: 'websiteTest',
+                    Item: {
+                        itemID: keyText,
+                        attribute1: valText
+                    }
+                };
+                docClient.put(params, function(err, data){
+                              if (err) console.log(err);
+                              else
+                              {
+                              resultData = data;
+                              console.log(resultData);
+                              
+                              }
+                              })
+                              
+                              
+            };
+        
+        document.getElementById('getThis').onclick = function () {
+            dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+            docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+            keyText = document.getElementById("keyValue").value;
+            attText = document.getElementById("attributeText").value;
+            console.log("Key Value: ", keyText);
+            console.log("Attribute: ", attText);
+            params = {
+                TableName: 'websiteTest',
+                Key: {
+                    itemID: keyText
+                },
+                ProjectionExpression: "#a",
+                ExpressionAttributeNames: {
+                    '#a': attText
+                }
+            };
+            docClient.get(params, function (err, data)
+                          {
+                          if (err)
+                          {
+                          console.log(err, err.stack);
+                          }
+                          else
+                          {
+                          console.log("success, logging data: ");
+                          console.log(data);//shows keys
+                          console.log("attribute 1 is " + data.Item.attribute1)
+                          //var output = data.Item.attribute1;
+                          l = document.getElementById("output");
+                          l.innerHTML = data.Item.attribute1;
+                          }
+                          })
+        };
+        
+        document.getElementById('updateThis').onclick = function () {
+            dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+            docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+            keyText = document.getElementById("keyValue").value;
+            attText = document.getElementById("attributeText").value;
+            valText = document.getElementById("valueText").value;
+            console.log("Key Value: ", keyText);
+            console.log("Attribute: ", attText);
+            console.log("Value: ", valText);
+            params = {
+                TableName: 'websiteTest',
+                Key: {
+                    itemID: keyText
+                },
+                ExpressionAttributeNames: {
+                    '#a': attText
+                },
+                ExpressionAttributeValues: {
+                    ':v': valText
+                },
+                UpdateExpression: 'set #a = :v',
+            };
+            
+            docClient.update(params, function (err, data) {
+                             if (err) console.log(err);
+                             else console.log(data);
+                             })
+        };
+        
+        document.getElementById('deleteThis').onclick = function () {
+            dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+            docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+            keyText = document.getElementById("keyValue").value;
+            console.log("Key Value: ", keyText);
+            params = {
+                TableName: 'websiteTest',
+                Key: {
+                    itemID: keyText
+                }
+            };
+            docClient.delete(params, function(err, data){
+                             if(err) console.log(err);
+                             else console.log(data);
+                             });
+        };
+</script>
+        
+        <!--
+         Below we include the Login Button social plugin. This button uses
+         the JavaScript SDK to present a graphical Login button that triggers
+         the FB.login() function when clicked.
+         -->
+        
+<!--        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">-->
+<!--            </fb:login-button>-->
+<!--            -->
+<!--            <div id="status">-->
+<!--            </div>-->
+<!--            </body>-->
+</html>
