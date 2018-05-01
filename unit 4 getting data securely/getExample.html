@@ -129,17 +129,17 @@
             iid = document.getElementById("iid").value;
             sk = document.getElementById("sk").value; //get this for the sort key
             
-//            console.log("Key Value: ", keyText);
-//            console.log("Attribute: ", attText);
+            console.log("Key Value: ", iid);
+            console.log("Attribute: ", sk);
             params = {
                 TableName: 'eveningtable',
                 Key: {
                     itemID: iid,
-                    sortKey: sk
-                },
-                ProjectionExpression: "#a",
-                ExpressionAttributeNames: {
-                    '#a': sk
+                   sortKey: sk
+//                },
+//                ProjectionExpression: "#a",
+//                ExpressionAttributeNames: {
+//                    '#a': sk
                 }
             };
             docClient.get(params, function (err, data)
@@ -152,10 +152,9 @@
                           {
                           console.log("success, logging data: ");
                           console.log(data);//shows keys
-                          console.log("attribute 1 is " + data.Item.attribute1)
-                          //var output = data.Item.attribute1;
+                          console.log("attribute 1 is " + data.Item.yy)
                           l = document.getElementById("output");
-                          l.innerHTML = data.Item.attribute1;
+                          l.innerHTML = data.Item.yy;
                           }
                           })
         };
