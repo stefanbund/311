@@ -1,0 +1,53 @@
+<!-- first html lesson -->
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="my.css" rel="stylesheet">
+</head>
+<body id="bod">
+    <input type="number" id="initial" value="give us a number"/><!--collect a number from here, because you specified type -->
+    <input type="text" id="name" value="give us a name"/><!--collect a number from here -->
+    <button id="complete">finish the exercise by printing out some nice output, pls</button>
+    <a href="vistitMe.html">click here for an example link (not made by your js)</a>
+
+    <script type="text/javascript">
+        document.getElementById('complete').onclick = function ()
+        {
+          var l = document.getElementById("initial").value; //should be of type number, numeric datatype
+          console.log(l);
+          console.log("var la is of type " + typeof l); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+            wrapitup(l); //pass it the contents of the input
+            //createLink();
+        }; //end params, now use them below
+
+        function wrapitup(x) //set a goal of outputting a whole html element with the results of your math
+        {
+            var output = x * x; //square it once
+            var dynamicDiv = document.createElement("div");//make a new div, dynamically
+            var newp = document.createElement("p");             //compose a p to put in the div
+            var newPMessage = "my data is saying: " + output ; //what's your message?
+            var nodeToPaint = document.createTextNode(newPMessage);//encode in a text node, for printing
+            newp.appendChild(nodeToPaint);//put the new text element in the new paragraph
+            dynamicDiv.appendChild(newp);//append the paragraph to the new div
+            dynamicDiv.setAttribute("id", x); //should prove that I can set the id of a new html element, via js
+            var element = document.getElementById("bod");//attach the div to the body
+            element.appendChild(dynamicDiv);
+            createLink(x);//use the name of the div we make, to help make a link in it
+        }
+        function createLink(wordInTheLink) //makes a hyperlink inside the new div
+        {
+          var a = document.createElement('a');
+          var personsName = document.getElementById("name").value; //get the link's title to use your name
+          var msg = "go here now, " + personsName;
+          a.title = msg;
+
+          var l = "ok, " + personsName + ", click here to return to page #" + wordInTheLink;
+          var linkText = document.createTextNode(l);
+          a.appendChild(linkText); //apply the message to the anchor link
+
+          a.href = "visitMe.html";
+          document.body.appendChild(a); //now put the link on the page
+        }
+    </script>
+</body>
+</html>
