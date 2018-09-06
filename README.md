@@ -7,3 +7,6 @@ Client-side Web Development at Cal Poly Pomona
 2. core html, js, css, https://www.useloom.com/share/4ae64d7648344ab485dd82833f218962 
 3. javascript generating DOM nodes via create element, https://www.useloom.com/share/49b0c06e8a9b4d6ea176b76c7007ed0f
 4. assignment one notes on drop down menus, https://www.useloom.com/share/45160ba03085448ea70d8b5d2120bc23
+
+### Outstanding Reference Material
+1. MDN beginner's reference, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
