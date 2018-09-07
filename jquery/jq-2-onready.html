@@ -1,0 +1,18 @@
+<!-- on ready() -->
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        console.log( "document loaded" );
+    });
+
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
+    });
+    </script>
+</head>
+<body>
+    <iframe src="http://techcrunch.com"></iframe>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!-- will consume url params of sending page, and load up an image with a ui piece, no jq
+https://raw.githubusercontent.com/stefanbund/311/master/prior%20terms/spring%202018%20materials/unit%202%20URL%20parameters/destinationUrlReader.html
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="go.css">
+        <title>destination url reader</title>
+        <meta charset="UTF-8">
+   </head>
+    <body>
+        <h3>Let's load some url parameters</h3>
+        <p id="status"></p>
+       URL parameter #1: <input id="k" type="text" /><br />
+      <div>
+            <p id="output">
+            </p>
+        </div>
+
+        <script>
+        var url = window.location.href;
+        console.log("url = " + url);
+        var x = breakUpURLParameters(url);
+	        console.log(x.search);
+	        console.log("img url  = " + x.search.img); //please refer to http://www.w3schools.com/jsref/jsref_map.asp for example code
+
+        document.getElementById("k").value = x.search.img;//assign your url parameter to be placeholder for your query boxes, to show off
+        document.getElementById("output").innerHTML = "total url was " +  url;
+        var t = document.getElementById("output");
+        var y = document.createElement("img");
+        y.setAttribute("src", x.search.img); // set up and assign img src
+        y.setAttribute("class", "pctImg"); //uses css class, be sure it's in the head area
+        t.appendChild(y);//attach to output para
+
+        function breakUpURLParameters(url) {        //analyze and output the url parameters as a useful array to caller
+            //  create a link in the DOM and set its href
+            var link = document.createElement('a');
+            link.setAttribute('href', url);
+            console.log("path variable is " + url);
+
+            //  return an easy-to-use object that breaks apart the path
+            return {
+                host:     link.hostname,  //  'example.com'
+                port:     link.port,      //  12345
+                search:   mapMaker(link.search),  //  {startIndex: 1, pageSize: 10}
+                path:     link.pathname,  //  '/blog/foo/bar'
+                protocol: link.protocol   //  'http:'
+            }
+        }
+
+        /**
+         *  Convert search param string into an object or array
+         *  '?startIndex=1&pageSize=10' -> {startIndex: 1, pageSize: 10}
+         */
+        function mapMaker(search, preserveDuplicates) {
+            //  option to preserve duplicate keys (e.g. 'sort=name&sort=age')
+            preserveDuplicates = preserveDuplicates || false;  //  disabled by default
+
+            var outputNoDupes = {};
+            var returnableArray = [];  //  optional output array to preserve duplicate keys
+
+            //  sanity check
+            if(!search) throw new Error('mapMaker: your search input param is misformed?');
+
+            //  remove ? character from your url (?foo=1&bar=2 -> 'foo=1&bar=2')
+            search = search.split('?')[1];
+
+            //  split apart your keys into a useful array of key/value pairs ('foo=1&bar=2' -> ['foo=1', 'bar=2'])
+            search = search.split('&');
+
+            //  separate keys from values (['foo=1', 'bar=2'] -> [{foo:1}, {bar:2}])
+            //  then package as an array for your caller to use as variables
+            returnableArray = search.map(function(keyval){
+                                         var out = {};
+                                         keyval = keyval.split('=');
+                                         out[keyval[0]] = keyval[1];
+                                         outputNoDupes[keyval[0]] = keyval[1]; //  might as well do the no-dupe work too while we're in the loop
+                                         return out;
+                                         });
+
+                                         return (preserveDuplicates) ? returnableArray : outputNoDupes;
+        }
+
+  	</script>
+	 </body>
+</html>
