@@ -9,7 +9,7 @@
 
 ### Phase 2
 1. understand url parameters, and make them happen, https://www.useloom.com/share/6ef704b26d5a4b178e935fc3c06649a0
-2. 
+2. integrating url parameters, for-loop iteration into a responsive image gallery https://www.useloom.com/share/9b273f6cd03a45d686393f6de726ee67
 
 ### Outstanding Reference Material
 1. MDN beginner's reference, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
