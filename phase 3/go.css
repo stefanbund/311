@@ -5,5 +5,27 @@ height: auto;
 .imgDiv{
   width:30%
   height:300px;
+<<<<<<< HEAD
   padding:5px; 
+=======
+  padding:5px;
+}
+body {
+  margin: 10px;
+}
+.containMe {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: 33% 33% 33%; //better for responsivity
+}
+
+.box {
+  background-color: #F1EBEA;
+  color: #7B241C;
+  border-radius: 3px; //adjust
+  padding: 20px;
+  font-size: 40%; //adjust
+  margin: 3px;
+  border: 3px;
+>>>>>>> e50850053f0a0b3223243a5e85fe68a17d43e64a
 }
