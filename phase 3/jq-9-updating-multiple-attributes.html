@@ -1,0 +1,26 @@
+<!-- adjusting many attributes in one fell swoop -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#new").attr({
+            "href" : "craigslist.com",
+            "title" : "making stuff work with JQ"
+        });
+    });
+});
+</script>
+</head>
+<body>
+
+<p><a href="http://craigslist.com" title="some title" id="new">work the link</a></p>
+
+<button>adjust the content of a link with this button</button>
+
+<p>verify that your link is now reset to the new url</p>
+
+</body>
+</html>
