@@ -5,28 +5,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $("#btn1").click(function(){
-        $("#test1").text("Hello world!");
+    $("#a").click(function(){
+        $("#o1").text("OUTPUT #1"); //output 1
     });
-    $("#btn2").click(function(){
-        $("#test2").html("<b>Hello world!</b>");
+    $("#b").click(function(){
+        $("#o2").html("<b>OUTPUT #2</b>"); //output 2
     });
-    $("#btn3").click(function(){
-        $("#test3").val("Dolly Duck");
+    $("#c").click(function(){
+        $("#o3").val("OPUTPUT #3"); //output 3
     });
 });
 </script>
 </head>
 <body>
 
-<p id="test1">This is a paragraph.</p>
-<p id="test2">This is another paragraph.</p>
+<p id="o1">my start value</p>
+<p id="o2">my start value</p>
 
-<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+<p>Input field: <input type="text" id="o3" value="my start value"></p>
 
-<button id="btn1">Set Text</button>
-<button id="btn2">Set HTML</button>
-<button id="btn3">Set Value</button>
+<button id="a">Setting Text in #1</button>
+<button id="b">Setting HTML in #2</button>
+<button id="c">Setting Value in #3</button>
 
 </body>
 </html>

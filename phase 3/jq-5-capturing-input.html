@@ -1,4 +1,5 @@
-<!--caputure ui inputs via jq -->
+<!--caputure button events via jq, exhibit in an alert
+more of an example of capture input, than anything else -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,16 +7,16 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        alert("Value: " + $("#test").val());
+        alert("Value: " + $("#mainP").val());
     });
 });
 </script>
 </head>
 <body>
 
-<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
+ <p>Name: <input type="text" id="mainP" value="hi guys"></p> <!--main para -->
 
-<button>Show Value</button>
+<button>example button in JQ</button>
 
 </body>
 </html>

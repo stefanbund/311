@@ -1,25 +1,26 @@
-<!--working with ready and assigning events to elements -->
+<!--working with ready and assigning events to elements
+reading the content of an element, and transfering it -->
 <!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-    $("#btn1").click(function(){
-        alert("Text: " + $("#test").text());
+$(document).ready(function(){ //after doc loads completely
+    $("#x").click(function(){
+        alert("Text: " + $("#mainP").text());
     });
-    $("#btn2").click(function(){
-        alert("HTML: " + $("#test").html());
+    $("#y").click(function(){
+        alert("HTML: " + $("#mainP").html());
     });
 });
 </script>
 </head>
 <body>
 
-<p id="test">This is some <b>bold</b> text in a paragraph.</p>
+<p id="mainP">What my paragraph <strong>says </strong></p>
 
-<button id="btn1">Show Text</button>
-<button id="btn2">Show HTML</button>
+<button id="x">display text from JQ</button>
+<button id="y">display HTML, from JQ</button>
 
 </body>
 </html>

@@ -1,22 +1,22 @@
-<!-- create multiple nodes via jq -->
+<!-- create multiple nodes via jq -- isn't this easier than what you already know? -->
 <!DOCTYPE html>
 <html>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-function appendText() {
-    var txt1 = "<p>Text.</p>";              // Create text with HTML
-    var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
-    var txt3 = document.createElement("p");
-    txt3.innerHTML = "Text.";               // Create text with DOM
-    $("body").append(txt1, txt2, txt3);     // Append new elements
+function multiplyContent() {
+    var d1 = "<div>#1: my div content.</div>";              // Create text with HTML
+    var d2 = $("<div></div>").text("#2: more div content.");  // Create text with jQuery
+    var d3 = document.createElement("div");
+    d3.innerHTML = "#3: even more....";               // Create text with DOM
+    $("body").append(d1, d2, d3);     // Append new elements
 }
 </script>
 </head>
 <body>
 
-<p>This is a paragraph.</p>
-<button onclick="appendText()">Append text</button>
+<p>Opening content goes here.....</p>
+<button onclick="multiplyContent()">Append text</button>
 
 </body>
 </html>

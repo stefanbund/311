@@ -1,4 +1,4 @@
-<!-- adjusting href attributes via event -->
+<!-- adjusting href attributes via button event, via jq -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,18 +6,18 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $("#w3s").attr("href", "https://www.w3schools.com/jquery/");
+        $("#orig").attr("href", "http://www.cpp.edu"); //attribute is adjusted
     });
 });
 </script>
 </head>
 <body>
 
-<p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+<button>adjusting the value of an href</button>
 
-<button>Change href Value</button>
+<p>once you've clicked the button, check out how the url in the link, below, has changed.</p>
+<p><a href="http://google.com" id="orig">link to search by</a></p>
 
-<p>Mouse over the link (or click on it) to see that the value of the href attribute has changed.</p>
 
 </body>
 </html>
