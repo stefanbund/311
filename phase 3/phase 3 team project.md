@@ -9,3 +9,7 @@ and font to each grid box.
 5. When 'unfavorite' button is clicked, the cookie favorite is deleted, or set to "". 
 6. Create a navigation bar at the top of every page, linking to each team mate's production. 
 7. Host publicly on Amazon S3. Apply a responsive CSS to each image, per phase 2, when they appear inside of each grid box. 
+
+#### Production notes
+1. for your buttons created during the for-loop, use addEventListener, in this example, to add the button to each box, with a prescribed function. In the parameters of the function, you should send in the id of the button (i, in the loop), specifying the name of the image (also [i].jpg). Here is that example: https://www.w3schools.com/jsref/met_element_addeventlistener.asp
+2. code the function to receive the name of the image, then save it as a cookie. 

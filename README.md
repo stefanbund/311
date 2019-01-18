@@ -17,5 +17,10 @@
 ### Phase 4
 1. Creating complete responsive websites using Bootstrap, https://www.useloom.com/share/81970de247124320a5585eda4d455533
 
+### Phase 5
+1. Creating a github organization, repository, and adding members to a team, https://github.com/collab-uniba/socialcde4eclipse/wiki/How-to-setup-a-GitHub-organization,-project-and-team
+2. basic collaboration steps, https://www.youtube.com/watch?v=61WbzS9XMwk
+3. github's own guides to collaboration, 
+
 ### Outstanding Reference Material
 1. MDN beginner's reference, https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics

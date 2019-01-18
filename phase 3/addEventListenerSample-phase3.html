@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="containMe"></div>
+
+<script>
+for(var i = 0; i< 7; i++){
+	var d = document.createElement("div");
+	var b = document.createElement("button");
+	b.setAttribute("text", "button");
+	var claim = i;
+	b.addEventListener("click", function(){outputAlert(claim);});
+	d.appendChild(b); //add the button to the div
+	var idc = document.getElementById("containMe");	
+	idc.appendChild(d);//apply the div to containMe grid, above, in body
+}
+
+function outputAlert(msg)
+{
+	alert("button index you just clicked was: " + msg);	
+}
+
+</script>
+</body>
+</html>
