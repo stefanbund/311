@@ -1,6 +1,9 @@
 
 ## Stefan Bund's Client-side Web Development
 
+### Phase 0 Team Build
+1. go to https://goo.gl/forms/Z0xXX9YT6kevyI713 to construct teams. 
+
 ### Phase 1 lesssons
 1. set up amazon hosting via S3, https://www.useloom.com/share/7d8f2f2638b046c6aba7c57b2b2e123b
 2. core html, js, css, https://www.useloom.com/share/4ae64d7648344ab485dd82833f218962 
