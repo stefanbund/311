@@ -4,6 +4,7 @@
 ### Phase 0 Team Build, Syllabus
 1. go to https://goo.gl/forms/Z0xXX9YT6kevyI713 to construct teams. 
 2. go to https://www.useloom.com/share/836b7217ed9546ffab1f97ccccbd1c6a to view our motivational starter talk
+3. please download the 'industry affinity' spreadsheet from blackboard, then view this tutorial on how to create teams with the data here, https://www.useloom.com/share/7935a031f49a4c2ba423c016c1cd45bc
 
 ### Phase 1 lesssons
 1. set up amazon hosting via S3, https://www.useloom.com/share/7d8f2f2638b046c6aba7c57b2b2e123b
