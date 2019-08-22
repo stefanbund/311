@@ -1,5 +1,6 @@
 
 ## Stefan Bund's Client-side Web Development
+## Spring 2019 Term Instructional Media:
 
 ### Phase 0 Team Build, Syllabus
 1. go to https://goo.gl/forms/Z0xXX9YT6kevyI713 to construct teams. 
