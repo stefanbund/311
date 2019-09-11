@@ -3,7 +3,7 @@
 ## Fall 2019 Term Instructional Media:
 1. aug 29 ,gatsby get started guide, https://www.gatsbyjs.org/docs/quick-start/ or alternatively, use https://www.gatsbyjs.org/tutorial/part-zero/ to get started
 2. sept 10, styling components using CSS modules in react, https://www.gatsbyjs.org/tutorial/part-two/#-style-a-component-using-css-modules
-3. CSS fundamentals, to employ inside your new react components, https://developer.mozilla.org/en-US/docs/Learn/CSS
+3. CSS fundamentals, to employ inside your new react components, https://developer.mozilla.org/en-US/docs/Learn/CSS , then go to https://css-tricks.com/ to investigate...
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
