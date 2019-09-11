@@ -2,8 +2,7 @@
 ## Stefan Bund's Client-side Web Development
 ## Fall 2019 Term Instructional Media:
 1. aug 29 ,gatsby get started guide, https://www.gatsbyjs.org/docs/quick-start/ or alternatively, use https://www.gatsbyjs.org/tutorial/part-zero/ to get started
-1.1 recipes, https://www.gatsbyjs.org/docs/recipes/
-
+2. sept 10, styling components using CSS modules in react, https://www.gatsbyjs.org/tutorial/part-two/#-style-a-component-using-css-modules
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
