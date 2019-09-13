@@ -1,7 +1,11 @@
 
 ## Stefan Bund's Client-side Web Development
-## Spring 2019 Term Instructional Media:
+## Fall 2019 Term Instructional Media:
+1. aug 29 ,gatsby get started guide, https://www.gatsbyjs.org/docs/quick-start/ or alternatively, use https://www.gatsbyjs.org/tutorial/part-zero/ to get started
+2. sept 10, styling components using CSS modules in react, https://www.gatsbyjs.org/tutorial/part-two/#-style-a-component-using-css-modules
+3. CSS fundamentals, to employ inside your new react components, https://developer.mozilla.org/en-US/docs/Learn/CSS , then go to https://css-tricks.com/ to investigate... We will utilize examples posted at https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started
 
+### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
 1. go to https://goo.gl/forms/Z0xXX9YT6kevyI713 to construct teams. 
 2. go to https://www.useloom.com/share/836b7217ed9546ffab1f97ccccbd1c6a to view our motivational starter talk
