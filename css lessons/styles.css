@@ -1,0 +1,29 @@
+h1 {
+  color: grey;
+}
+
+p {
+  color: brown;
+  font-family: helvetica;
+}
+li {
+    color: grey;
+}
+.special {
+  color: orange;
+  font-weight: bold;
+}
+li.special {
+  color: orange;
+  font-weight: bold;
+}
+a:link {
+  color: pink;
+}
+
+a:visited {
+  color: green;
+}
+a:hover {
+  text-decoration: wavy overline lime;
+}
