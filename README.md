@@ -4,6 +4,7 @@
 1. aug 29 ,gatsby get started guide, https://www.gatsbyjs.org/docs/quick-start/ or alternatively, use https://www.gatsbyjs.org/tutorial/part-zero/ to get started
 2. sept 10, styling components using CSS modules in react, https://www.gatsbyjs.org/tutorial/part-two/#-style-a-component-using-css-modules
 3. CSS fundamentals, to employ inside your new react components, https://developer.mozilla.org/en-US/docs/Learn/CSS , then go to https://css-tricks.com/ to investigate... We will utilize examples posted at https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started
+4. on div styling, https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Functions
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
