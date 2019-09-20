@@ -5,6 +5,7 @@
 2. sept 10, styling components using CSS modules in react, https://www.gatsbyjs.org/tutorial/part-two/#-style-a-component-using-css-modules
 3. CSS fundamentals, to employ inside your new react components, https://developer.mozilla.org/en-US/docs/Learn/CSS , then go to https://css-tricks.com/ to investigate... We will utilize examples posted at https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/Getting_started
 4. on div styling, https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Functions
+5. css grids, https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
