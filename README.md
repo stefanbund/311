@@ -7,7 +7,7 @@
 4. on div styling, https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/How_CSS_is_structured#Functions
 5. css grids, https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 6. guide to creating your own Linux instance on EC2/AWS: https://www.loom.com/share/c7e11169e2d14140ad526615962c44f7
-7. project guide, what to turn in on october 1-3 for first project
+7. project guide, what to turn in on october 1-3 for first project, https://github.com/stefanbund/311/blob/master/October%201%20project%20guidelines.pdf
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
