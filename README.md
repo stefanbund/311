@@ -9,6 +9,7 @@
 6. guide to creating your own Linux instance on EC2/AWS: https://www.loom.com/share/c7e11169e2d14140ad526615962c44f7
 7. project guide, what to turn in on october 1-3 for first project, https://github.com/stefanbund/311/blob/master/October%201%20project%20guidelines.pdf
 8. oct 1, introducting bootstrap https://www.loom.com/share/05ecb40fed8c4c7d8d470356425392e1
+9. oct 3, the boostrap rubric: container, row, column, input and buttons, radios and checkbox UI elements, https://www.loom.com/share/1779feb958f64f1889efa0220ceb1675
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
