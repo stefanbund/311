@@ -10,6 +10,8 @@
 7. project guide, what to turn in on october 1-3 for first project, https://github.com/stefanbund/311/blob/master/October%201%20project%20guidelines.pdf
 8. oct 1, introducting bootstrap https://www.loom.com/share/05ecb40fed8c4c7d8d470356425392e1
 9. oct 3, the boostrap rubric: container, row, column, input and buttons, radios and checkbox UI elements, https://www.loom.com/share/1779feb958f64f1889efa0220ceb1675
+10. UI elements in CSS3 Bootstrap: text inputs, radios, checkboxes, tooltips, praefills and classic buttons, https://getbootstrap.com/docs/4.3/examples/checkout/
+11. cards, containers, card decks in bootstrap and ecommerce layouts, https://getbootstrap.com/docs/4.3/examples/checkout/
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
