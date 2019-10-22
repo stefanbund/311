@@ -12,6 +12,12 @@
 9. oct 3, the boostrap rubric: container, row, column, input and buttons, radios and checkbox UI elements, https://www.loom.com/share/1779feb958f64f1889efa0220ceb1675
 10. UI elements in CSS3 Bootstrap: text inputs, radios, checkboxes, tooltips, praefills and classic buttons, https://getbootstrap.com/docs/4.3/examples/checkout/
 11. cards, containers, card decks in bootstrap and ecommerce layouts, https://getbootstrap.com/docs/4.3/examples/pricing/
+Javascript Elements
+12. integrating javascript into html pages, getElementById, manipulating the DOM, adding html elements, augmenting properties of html elements in the DOM, interactivity, basic UI elements (buttons, text inputs, links), programming with links and the window object, https://github.com/stefanbund/311/tree/master/prior%20terms/phase%201. Movie version of lectures: 
+>12.1. set up amazon hosting via S3, https://www.useloom.com/share/7d8f2f2638b046c6aba7c57b2b2e123b
+>12.2. core html, js, css, https://www.useloom.com/share/4ae64d7648344ab485dd82833f218962 
+>12.3. javascript generating DOM nodes via create element, https://www.useloom.com/share/49b0c06e8a9b4d6ea176b76c7007ed0f
+>12.4. assignment one notes on drop down menus, https://www.useloom.com/share/45160ba03085448ea70d8b5d2120bc23
 
 ### Prior terms, spring '19:
 ### Phase 0 Team Build, Syllabus
