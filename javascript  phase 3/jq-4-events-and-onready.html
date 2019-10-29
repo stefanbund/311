@@ -1,0 +1,26 @@
+<!--working with ready and assigning events to elements
+reading the content of an element, and transfering it -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){ //after doc loads completely
+    $("#x").click(function(){
+        alert("Text: " + $("#mainP").text());
+    });
+    $("#y").click(function(){
+        alert("HTML: " + $("#mainP").html());
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="mainP">What my paragraph <strong>says </strong></p>
+
+<button id="x">display text from JQ</button>
+<button id="y">display HTML, from JQ</button>
+
+</body>
+</html>

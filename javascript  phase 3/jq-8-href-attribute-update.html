@@ -1,0 +1,23 @@
+<!-- adjusting href attributes via button event, via jq -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#orig").attr("href", "http://www.cpp.edu"); //attribute is adjusted
+    });
+});
+</script>
+</head>
+<body>
+
+<button>adjusting the value of an href</button>
+
+<p>once you've clicked the button, check out how the url in the link, below, has changed.</p>
+<p><a href="http://google.com" id="orig">link to search by</a></p>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- setting content inside a jq controlled document -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#a").click(function(){
+        $("#o1").text("OUTPUT #1"); //output 1
+    });
+    $("#b").click(function(){
+        $("#o2").html("<b>OUTPUT #2</b>"); //output 2
+    });
+    $("#c").click(function(){
+        $("#o3").val("OPUTPUT #3"); //output 3
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="o1">my start value</p>
+<p id="o2">my start value</p>
+
+<p>Input field: <input type="text" id="o3" value="my start value"></p>
+
+<button id="a">Setting Text in #1</button>
+<button id="b">Setting HTML in #2</button>
+<button id="c">Setting Value in #3</button>
+
+</body>
+</html>

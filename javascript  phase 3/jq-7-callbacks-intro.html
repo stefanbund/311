@@ -1,0 +1,31 @@
+<!-- jq callback strategies, emphasizing function() after .text and .html -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#a").click(function(){
+        $("#t").text(function(i, prior){
+            return "Old text was: " + prior + "and new text is:" + i + ")"; //http://api.jquery.com/text/
+        });
+    });
+
+    $("#b").click(function(){
+        $("#t2").html(function(i, prior){
+            return "original html was: " + prior + "and new html is: <b>hi there</b> (index: " + i + ")";
+        });
+    });
+});
+</script>
+</head>
+<body>
+
+<p id="t">This is a <b>bold</b> paragraph.</p>
+<p id="t2">This is another <b>bold</b> paragraph.</p>
+
+<button id="a">adjust t</button>
+<button id="b">adjust t2</button>
+
+</body>
+</html>

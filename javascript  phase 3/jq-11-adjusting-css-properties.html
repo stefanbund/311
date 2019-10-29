@@ -1,0 +1,27 @@
+<!-- setting css properties for any elements via jq, not using id tag on the element-->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("p").css("background-color", "grey");
+    });
+});
+</script>
+</head>
+<body>
+
+<h2>HEADING 2 SIZE</h2>
+
+<p style="background-color:#ff0000">MY CONTENT #1 .</p>
+<p style="background-color:#00ff00">MY CONTENT #1</p>
+<p style="background-color:#0000ff">MY CONTENT #1.</p>
+
+<p>MY CONTENT #1.</p>
+
+<button>ADJUST BACKGROUND ON CLICK, HERE</button>
+
+</body>
+</html>

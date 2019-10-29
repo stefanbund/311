@@ -1,0 +1,22 @@
+<!--caputure button events via jq, exhibit in an alert
+more of an example of capture input, than anything else -->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        alert("Value: " + $("#mainP").val());
+    });
+});
+</script>
+</head>
+<body>
+
+ <p>Name: <input type="text" id="mainP" value="hi guys"></p> <!--main para -->
+
+<button>example button in JQ</button>
+
+</body>
+</html>

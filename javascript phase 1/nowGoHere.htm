@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="my.css" rel="stylesheet"> <!--things will look differently now -->
+</head>
+<body>
+<h1>Welcome to CIS 311</h1>
+<div>
+<p>This represents basic html</p>
+<p>Type some words into the input, below, then click the first button, observing the console. </p>
+
+<p>Now <a href="first.html"> notice how the hyperlink looks different, and behaves differently...</a></p>
+  <input type="number" id="x" name="type a number in here."/>
+  <button id="thisGuy">click me to move the input's data into the console</button> <!--check out script for details -->
+  <button id="closer" onclick="navigate()">click this move to the next page, if you're done </button>
+</div>
+<div>
+    <p id="initial"> the purpose of a div is to separate the page into boxes, and organize the layout<p/>
+      <p id="littleLesson">
+      <p id="output">
+</div>
+<div id="warning"/>
+    <script>  //show them 2 ways to fire some code when they click on a button -- the first is using DOM, the other is inline
+              document.getElementById('thisGuy').onclick = function() //respond to button click event, above
+              {
+                var l = document.getElementById("x").value;
+                console.log("value of text input is now " + l);
+                document.getElementById('littleLesson').innerHTML = "now check out how js can generate content, using the DOM";
+                document.getElementById('output').innerHTML = "you just typed: <strong> " + l + "</strong>";
+                document.getElementById('initial').innerHTML = "";
+              };
+
+              function navigate() //move the user onward to first.html
+              {
+                var y = document.getElementById('x').value;
+                console.log("y  == " + y);
+
+                if(y > 1 && y < 100)
+                {
+                  window.location.href = "first.html"; //move to this location
+                }else
+                {
+                    document.getElementById('warning').innerHTML = "didn't meet the restrictions: y should be gt 1 and lt 100";
+                    alert("didn't meet the restrictions: y should be gt 1 and lt 100");
+                }
+              };
+    </script>
+</body></html>

@@ -1,0 +1,39 @@
+<!--VERSION 2 WITH CSS, introduction to responsive design, resize per device, then attempt interactive links (enabled)
+WILL ALSO load detailPage.html, with url param handling built in
+grab a set of images, using an array, for-iteration, then style them using css,
+move to second page using url parameters, non jq
+use non jq method to pass url parameters
+width of div, https://css-tricks.com/almanac/properties/w/width/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="go.css">
+</head>
+<body>
+<script>
+ var images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"]; //your urls
+ console.log(images);
+ var url ; //assign later, make scope global to script
+ for(var i=0; i < images.length; i++) //establish for, 6 items, last index place is 5, if you recall
+ {
+   console.log("image in iteration is " + images[i]);
+   url = "https://s3-us-west-2.amazonaws.com/newbucket3110fall18/phase2/" + images[i]; //append to https://s3-us-west-2.amazonaws.com/newbucket3110fall18/phase2/
+   urlOfDetailPage = "detailPage-v3.html?" + "img=" + url; //where you will navigate, once you press the image, will send the detail page the img to analyze
+//https://github.com/stefanbund/311/blob/16b1bb98a9f3c7a10663c2a4f87651bbf3508e17/prior%20terms/spring%202018%20materials/unit%202%20URL%20parameters/urlOrigin.html#L31   var imgDiv = document.createElement("div"); //divs to house img
+  var imgDiv = document.createElement("div"); //make a div
+   imgDiv.setAttribute("class", "imgDiv"); //so it displays at 30% width, margin and padding https://css-tricks.com/almanac/properties/o/object-fit/
+   var imgInDiv = document.createElement("img");
+   imgInDiv.setAttribute("class", "pctImg"); //fit to div
+   imgInDiv.setAttribute("src", url); //src to url, above, determined by for i
+   var link = document.createElement("a");
+   link.setAttribute("href", urlOfDetailPage); // so you'll navigate to the url
+   link.appendChild(imgInDiv); //make the image the link
+   imgDiv.appendChild(link);//place the link inside of each div
+   document.body.appendChild(imgDiv);//then appd to body, document.body.appendChild
+ }
+
+
+</script>
+</body>
+</html>
